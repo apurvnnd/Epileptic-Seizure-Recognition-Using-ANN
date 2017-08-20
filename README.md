@@ -82,3 +82,21 @@ Layers:
 ### Classification Basis
 > Although there are 5 classes,binary classification has been performed. 
 > Namely class 1 (Epileptic seizure) against the rest, changed to 0.
+
+
+## Result & Accuracy obtained
+- Test Dataset size : 20% that is, 2300 instances
+- Train Dataset Size: 80% that is, 9200 instances
+
+- 0: No Seizure
+- 1: Seizure Detected
+
+### Result
+
+```
+     0     1
+0   1843   11
+1    37    409
+```
+### Accuracy 
+**97.91%**
