@@ -1,5 +1,3 @@
-from csv import reader
-
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -41,19 +39,19 @@ from keras.layers import Dense
 classifier = Sequential()
 
 #Adding input layer and first hidden layer
-classifier.add(Dense(output_dim = 7, init = 'uniform', activation = 'relu', input_dim = 13))
+classifier.add(Dense(output_dim = 80, init = 'uniform', activation = 'relu', input_dim = 178))
 
 #Adding second hidden layer
-classifier.add(Dense(output_dim = 7, init = 'uniform', activation = 'relu'))
+classifier.add(Dense(output_dim = 80, init = 'uniform', activation = 'relu'))
 
 #Adding the output layer
-classifier.add(Dense(output_dim = 3, init = 'uniform', activation = 'softmax'))
+classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'sigmoid'))
 
 #Compiling the ANN
-classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
 #Fitting the ANN to the training set
-classifier.fit(X_train, y_train, batch_size = 10, nb_epoch = 50)
+classifier.fit(X_train, y_train, batch_size = 10, nb_epoch = 100)
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
@@ -62,3 +60,4 @@ y_pred = (y_pred > 0.5)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
+print(cm)
